@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FORECAST_URL, GEO_URL } from "./config/config";
 import { TForeCast, TOptions } from "./types/types";
 import SearchContainer from "./containers/SearchContainer";
-import Forecast from "./components/Forecast";
+import Forecast from "./containers/ForecastContainer";
 
 function App() {
   const [city, setCity] = useState<string>("");
@@ -34,7 +34,7 @@ function App() {
     const value = e.target.value.replace(/\s+/g, " ");
     setCity(value);
 
-    if (value === "") return setOptions([]);
+    if (value === "") return setOptions(null);
   };
 
   // ------------------------ HANDLE FORM SUBMIT ------------------------ //
@@ -56,8 +56,8 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen m-auto app">
-      <h1>MyWeatherCast</h1>
+    <main className="flex flex-col items-center justify-center md:h-screen app">
+      <h1 className="my-2 text-white underline">MyWeatherCast</h1>
 
       <SearchContainer
         handleFormSubmit={handleFormSubmit}
@@ -68,7 +68,7 @@ function App() {
       />
 
       <Forecast forecast={forecast} location={location} />
-    </div>
+    </main>
   );
 }
 

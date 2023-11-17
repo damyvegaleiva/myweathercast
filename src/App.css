@@ -20,11 +20,6 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
-/* body {
-  background: black;
-  color: white;
-} */
-
 body {
   background: url("../public/bg.avif") no-repeat;
 }
