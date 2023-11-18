@@ -12,8 +12,11 @@ const ForecastHourly: React.FC<ForecastHourlyProps> = ({
   return (
     <div className="flex flex-row items-center justify-center gap-x-4">
       {forecast?.list.map((item, index) => (
-        <div className="flex flex-col items-center justify-center" key={index}>
-          <p className="text-sm">
+        <div
+          className="flex flex-col items-center justify-center gap-y-2"
+          key={index}
+        >
+          <p className="text-base">
             {index !== 0 && new Date(item.dt * 1000).getHours() < 10 && "0"}
             {index === 0 ? "Now" : new Date(item.dt * 1000).getHours()}
           </p>
@@ -22,7 +25,7 @@ const ForecastHourly: React.FC<ForecastHourlyProps> = ({
             alt={`Weather icon for ${item.weather[0].description}`}
             className="w-[30px]"
           />
-          <p className="text-sm">
+          <p className="text-base">
             {temperatureConverter(Math.round(item.main.temp))}°
           </p>
         </div>

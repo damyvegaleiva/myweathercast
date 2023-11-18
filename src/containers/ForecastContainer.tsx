@@ -50,7 +50,7 @@ const Forecast: React.FC<ForecastProps> = ({ forecast, location }) => {
             temp_min={temperatureConverter(today?.main.temp_min || 0)}
           />
 
-          <div className="flex flex-row justify-center gap-2">
+          <div className="flex flex-row justify-center gap-5">
             <ForecastExtras
               text={"FEELS LIKE"}
               alt={"Thermometer icon"}

@@ -13,9 +13,9 @@ const ForecastTemp: React.FC<ForecastTempProps> = ({
 }) => {
   return (
     <div className="flex flex-col items-center justify-center">
-      <h2 className="text-4xl font-semibold rounded-2xl ">{temp}°</h2>
-      <p className="text-[.75rem]">{description || ""}</p>
-      <p className="block text-[.75rem] font-normal">
+      <h2 className="text-5xl font-semibold rounded-2xl">{temp}°</h2>
+      <p className="text-base">{description || ""}</p>
+      <p className="block text-base font-normal">
         H:{temp_max}° L:
         {temp_min}°
       </p>

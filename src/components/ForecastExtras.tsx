@@ -12,12 +12,12 @@ const ForecastExtras: React.FC<ForecastExtrasProps> = ({
   alt,
 }) => {
   return (
-    <div className="p-3 rounded-lg bg-white/10 backdrop-blur border-[1px] border-gray-500">
-      <p className="flex flex-row text-[.6rem]">
+    <div className="px-3 py-5 rounded-lg bg-white/10 backdrop-blur ">
+      <p className="flex flex-row mb-1 text-sm">
         <img src={icon} alt={alt} className="inline-block w-4" />
         {text}
       </p>
-      <p className="text-sm">{value}</p>
+      <p className="text-base">{value}</p>
     </div>
   );
 };
