@@ -9,6 +9,7 @@ function App() {
   const [options, setOptions] = useState<TOptions[] | null>(null);
   const [location, setLocation] = useState<TOptions | null>(null);
   const [forecast, setForecast] = useState<TForeCast | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   // ------------------ useEffect EVERY TIME LOCATION CHANGES AND NOT EMPTY ------------------//
   useEffect(() => {
@@ -19,6 +20,8 @@ function App() {
 
   // ------------------------ FETCH DATA FOR BOTH ------------------------//
   const fetchData = async (API_URL: string): Promise<void> => {
+    setIsLoading(true);
+
     try {
       const req = await fetch(API_URL);
       const res = await req.json();
@@ -26,6 +29,10 @@ function App() {
       API_URL.includes("/geo") ? setOptions(res) : setForecast(res);
     } catch (err) {
       console.log("The error:", err);
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 500);
     }
   };
 
@@ -65,6 +72,7 @@ function App() {
         handleInputChange={handleInputChange}
         options={options}
         handleClick={handleClick}
+        isLoading={isLoading}
       />
 
       <Forecast forecast={forecast} location={location} />

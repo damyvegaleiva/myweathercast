@@ -17,12 +17,12 @@ const Form: React.FC<FormProps> = ({
       className="bg-white border-2 border-black"
     >
       <input
-        className="px-3 focus:outline-none"
+        className="px-3 bg-white focus:outline-none"
         autoComplete="off"
         type="search"
         name="search"
         value={city}
-        placeholder="City..."
+        placeholder="Search city..."
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleInputChange(e)
         }

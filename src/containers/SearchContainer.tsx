@@ -1,5 +1,6 @@
 import Form from "../components/Form";
 import OptionsList from "../components/OptionsList";
+import SpinnerLoader from "../components/SpinnerLoader";
 import { TOptions } from "../types/types";
 
 type SearchContainerProps = {
@@ -8,6 +9,7 @@ type SearchContainerProps = {
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   options: TOptions[] | null;
   handleClick: (option: TOptions) => void;
+  isLoading: boolean;
 };
 
 const SearchContainer: React.FC<SearchContainerProps> = ({
@@ -16,6 +18,7 @@ const SearchContainer: React.FC<SearchContainerProps> = ({
   handleInputChange,
   options,
   handleClick,
+  isLoading,
 }) => {
   return (
     <search className="relative mb-5 bg-white">
@@ -25,7 +28,11 @@ const SearchContainer: React.FC<SearchContainerProps> = ({
         handleInputChange={handleInputChange}
       />
 
-      <OptionsList options={options} handleClick={handleClick} />
+      {isLoading && options ? (
+        <SpinnerLoader />
+      ) : (
+        <OptionsList options={options} handleClick={handleClick} />
+      )}
     </search>
   );
 };
