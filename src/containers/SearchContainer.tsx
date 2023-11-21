@@ -21,19 +21,21 @@ const SearchContainer: React.FC<SearchContainerProps> = ({
   isLoading,
 }) => {
   return (
-    <search className="relative mb-5 bg-white">
-      <Form
-        handleFormSubmit={handleFormSubmit}
-        city={city}
-        handleInputChange={handleInputChange}
-      />
+    <header>
+      <search className="relative mb-5 bg-white">
+        <Form
+          handleFormSubmit={handleFormSubmit}
+          city={city}
+          handleInputChange={handleInputChange}
+        />
 
-      {isLoading && options ? (
-        <SpinnerLoader />
-      ) : (
-        <OptionsList options={options} handleClick={handleClick} />
-      )}
-    </search>
+        {isLoading && options ? (
+          <SpinnerLoader />
+        ) : (
+          <OptionsList options={options} handleClick={handleClick} />
+        )}
+      </search>
+    </header>
   );
 };
 
