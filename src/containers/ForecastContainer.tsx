@@ -31,7 +31,7 @@ const Forecast: React.FC<ForecastProps> = ({ forecast, location }) => {
   return (
     <>
       {forecast && (
-        <main className="relative flex flex-col items-center justify-center mx-2 max-w-[400px] py-6 border-2 gap-5 rounded-lg bg-[#6882a670] backdrop-blur">
+        <main className="relative flex flex-col items-center justify-center mx-2 max-w-[400px] py-6 border-2 gap-4 rounded-lg bg-[#6882a670] backdrop-blur">
           <ForecastDegreeOptionContainer
             degree={degree}
             setDegree={setDegree}
